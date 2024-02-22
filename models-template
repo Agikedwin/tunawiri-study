@@ -1,0 +1,155 @@
+Module : Social Support 
+Tool: WHO Intimate Partner Violence 
+
+        formValues: {
+            insultedFeelings: "",
+            belittledHumiliated: "",
+            scareIntimidate: "",
+            threwOutHouse: "",
+            confinedLocked: "",
+            threatenedHurt: "",
+            slappedThrown: "",
+            pushedShoved: "",
+            hitWithFist: "",
+            kickedDragged: "",
+            chokedBurnt: "",
+            threatenedUsedWeapon: "",
+            forcedSexualIntercourse: "",
+            agreedUnwantedIntercourse: "",
+            forcedOtherSexualAct: "",
+            triedKeepFromFriends: "",
+            triedRestrictFamilyContact: "",
+            insistedKnowingLocation: "",
+            jealousAngryWithMen: "",
+            suspiciousUnfaithful: "",
+            tookEarningsSavings: "",
+            refusedMoneyForHousehold: "",
+            triedConvinceCrazy: "",
+            blamedForViolentBehavior: ""
+        }
+
+
+
+
+Module : Mental Health Treatment (mentalHealthTreatment)
+Tool: General Health 
+	    formValues: {
+        pregnancy_count: "",
+       
+    }
+});
+
+
+Module : Mental Health Treatment
+Tool: Antenatal 
+    formValues: {
+        weeks_pregnant: "",
+        months_into_pregnancy_when_first_antental_care: "",
+        
+}); 
+
+Module : Mental Health Treatment
+Tool: Postnatal 
+	        formValues: {
+            pregnancy_end_duration: null,
+            place_of_birth: "",
+            otherPlaceOfBirth: "",
+            infant_alive: "",
+            infant_passing_age: "",
+            HIV_test_done: "",
+            
+        }
+
+
+Module : Mental Health Outcome 
+Tool : Depression PHQ9
+	    formValues: {
+        interestPleasure: "",
+        feelingDepressed: "",
+        troubleSleeping: "",
+        feelingTired: "",
+        poorAppetite: "",
+        feelingBadAboutYourself: "",
+        troubleConcentrating: "",
+        slowOrRestless: "",
+        thoughtsOfHarmingYourself: "",
+        difficultyExperiencedProblems: "",
+	phq9_score:"",
+    }
+});
+
+
+Module Mental Health Outcome 
+Tool : Anxiety Gad 7 Scale 
+	    formValues: {
+         feelingNervousAnxious: "",
+         notAbleToStopWorrying: "",
+         worryingTooMuch: "",
+         troubleRelaxing: "",
+         restlessDifficultySittingStill: "",
+         easilyAnnoyedIrritable: "",
+         feelingAfraidSomethingAwfulMightHappen: "",
+	 anxiety_gad7_score:"",
+    }
+});
+Module Mental Health Outcome
+Tool : Trauma Exposure 
+	    formValues: {
+        witnessedMurderOfFamilyOrFriend: "",
+        witnessedMurderOfStrangerOrKnownPerson: "",
+        witnessedArmedAttackOnSomeone: "",
+        leftCountryDueToWarConflictPoverty: "",
+        sexuallyAssaultedOrRaped: "",
+        experiencedTorture: "",
+        robbedAtGunpointOrKnifepoint: "",
+        kidnapped: "",
+        feltCloseToDeath: "",
+        witnessedSomeoneBeingRaped: "",
+        trauma_exposure_score: "",
+    }
+});
+
+Module Mental Health Outcome
+Tool : Harvard Trauma
+	        formValues: {
+            thoughtsMemories: "",
+            feelingAsThoughEventHappeningAgain: "",
+            recurrentNightmares: "",
+            feelingDetachedWithdrawn: "",
+            unableToFeelEmotions: "",
+            feelingJumpyEasilyStartled: "",
+            difficultyConcentrating: "",
+            troubleSleeping: "",
+            feelingOnGuard: "",
+            feelingIrritableOrAngry: "",
+            avoidingActivitiesRemindOfEvent: "",
+            inabilityToRememberTraumaticEvents: "",
+            lessInterestInDailyActivities: "",
+            feelingNoFuture: "",
+            suddenEmotionalPhysicalReaction: "",
+            avoidingThoughtsFeelingsAssociatedWithEvent: "",
+            feelingWorldIsDangerousPlace: "",
+            feelingYouAreBadPerson: "",
+            blamingYourselfForTraumaticEvent: "",
+            strongFeelingOfFearHorrorAngerGuiltShame: "",
+            difficultyFeelingLoveOrHappiness: "",
+            takingRisksThatMayHarmYourselfOrOthers: "",
+            feelingDamagedByTraumaticEvent: "",
+            feelingSomethingRemindsYouOfTraumaLikeADream: "",
+            feelingPeopleOrObjectsAroundYouAreStrangeOrNotReal: "",
+            harvard_trauma_score: "",
+
+Module Mental Health OUtcome 
+Tool : Suicidality Screener
+	formValues: {
+    wishedDeadOrToSleep: "",
+    thoughtsAboutKillingYourself: "",
+    thinkingAboutHowToKillYourself: "",
+    thoughtsWithIntentionOfActing: "",
+    workedOutDetailsOfKillingYourself: "",
+    doneAnythingToEndYourLife3month: "",
+    doneAnythingToEndYourLifeLifetime: "",
+    suicidalScreenerScore:"",
+
+
+mHTreatmentSuicidalModel
