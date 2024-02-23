@@ -13,4 +13,4 @@ class MentalHealthTraumaExposureModel(BaseModel):
     kidnapped: str
     feltCloseToDeath: str
     witnessedSomeoneBeingRaped: str
-    trauma_exposure_score: strssseqewqerqerqwerweqrqrqqrqrqerqeweqrqrqwrqrqr
+    trauma_exposure_score: str
