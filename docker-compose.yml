@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  ehe:
+    container_name: tunawiri
+    image: edvinag73/tunawiri-study
+    build: .
+    stdin_open: true
+    tty: true
+    ports:
+      - "8050:8050"
+  
