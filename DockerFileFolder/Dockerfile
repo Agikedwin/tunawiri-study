@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM python:3.9
 
 COPY requirements.txt ./requirements.txt
 RUN apt-get update && apt-get install -y python3.9 python3.9-dev
