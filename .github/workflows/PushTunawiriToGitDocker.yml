@@ -18,7 +18,7 @@ jobs:
             - name: Build and push Docker image
               uses: docker/build-push-action@v4
               with:
-                context: DockerFileFolder/
+                context: Dockerfile
                 push: true
                 tags: edvinag73/tunawiri-study
 
