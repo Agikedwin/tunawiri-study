@@ -2,7 +2,7 @@
 import uvicorn
 from pymongo import MongoClient
 from fastapi import FastAPI
-from routes.api import router as  routerAPI
+from src.routes.api import router as routerAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 

@@ -1,11 +1,14 @@
-version: '3.7'
+version: '3'
 services:
-  ehe:
+  nawiri:
     container_name: tunawiri
-    image: edvinag73/tunawiri-study
+    image: nawiri/app
     build: .
     stdin_open: true
     tty: true
     ports:
       - "8050:8050"
-  
+
+
+
+

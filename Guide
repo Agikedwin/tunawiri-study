@@ -3,3 +3,41 @@ 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
 
 
 dckr_pat_m0P7n7_Oc6FobyeU-4xjTJPKD6o
+
+
+name: Tunawiri App
+
+on:
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: ./src/
+        strategy:
+            matrix:
+                python-version: [3.8,3.9,3.7]
+        env:
+            MODE: 'dev'
+
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                python-version: ${{matrix.python-version}}
+            - name: Install Depencecies
+              run: |
+                python -m pip install --upgrade pip
+                pip install -r ../requirements.txt
+                
+            - name: Test App Code
+              run: python ./main.py
+
+                    
+             
