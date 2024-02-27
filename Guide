@@ -2,11 +2,12 @@ https://www.youtube.com/watch?v=UEOtZvTCmDo
 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
 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
 
-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
+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
 
 
 dckr_pat_m0P7n7_Oc6FobyeU-4xjTJPKD6o
 
+sudo docker rmi 17420b600aed -f
 
 name: Tunawiri App
 
