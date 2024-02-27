@@ -3,7 +3,10 @@ services:
   nawiri:
     container_name: tunawiri
     image: nawiri/app
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+
     stdin_open: true
     tty: true
     ports:
