@@ -1,16 +1,10 @@
 version: '3'
 services:
   nawiri:
-    container_name: tunawiri
-    image: nawiri/app
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: edvinag73/tunawiri-study
+    network_mode: "host"
+    restart: unless-stopped
 
-    stdin_open: true
-    tty: true
-    ports:
-      - "8050:8050"
 
 
 

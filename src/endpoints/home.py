@@ -8,4 +8,4 @@ router = APIRouter(prefix="/home", tags=["Home"])
 
 @router.get("/", response_description="Home Page", status_code=status.HTTP_201_CREATED)
 def homePage():
-    return  'APP RUNNING'
+    return  ' TUNAWIRI APP STARTED AND RUNNING'
