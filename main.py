@@ -21,8 +21,8 @@ app.add_middleware(
 def startup_db_client():
     try:
     
-        #app.mongodb_client = MongoClient('mongodb://root:[agik]@localhost:27017/')
-        app.mongodb_client = MongoClient('mongodb://superuser:superuser123@41.89.200.200:27017/')
+        app.mongodb_client = MongoClient('mongodb://root:[agik]@localhost:27017/')
+        #app.mongodb_client = MongoClient('mongodb://superuser:superuser123@41.89.200.200:27017/')
         app.database = app.mongodb_client['tunawiri_db']
         print("Connected to the MongoDB database!")
     except Exception :

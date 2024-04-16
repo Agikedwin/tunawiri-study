@@ -4,11 +4,13 @@ import uuid
 
 
 class MentalHealthSuicidalModel(BaseModel):
-    wishedDeadOrToSleep: str
-    thoughtsAboutKillingYourself: str
-    thinkingAboutHowToKillYourself: str
+    id: object = Field(default_factory=uuid.uuid4, alias='_id')
+    user_id: object
+    wished_dead_or_to_sleep: str
+    thoughts_about_killing_yourself: str
+    thinking_about_how_to_kill_Yourself: str
     thoughtsWithIntentionOfActing: str
-    workedOutDetailsOfKillingYourself: str
-    doneAnythingToEndYourLife3month: str
-    doneAnythingToEndYourLifeLifetime: str
-    suicidalScreenerScore: str
+    worked_out_details_of_killing_yourself: str
+    done_anything_to_end_your_life_3month: str
+    done_anything_to_end_your_life_lifetime: str
+    suicidality_screener_score: str

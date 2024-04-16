@@ -5,26 +5,15 @@ from pydantic import BaseModel, Field, validator
 
 class User(BaseModel):
     id: object = Field(default_factory=uuid.uuid4, alias='_id')
-    mchNumber: int
-    firstName: str
-    otherNames: str
-    age: int = Field(gt=0)
-    maritalStatus: str
-    educationLevel: str
-    readingAbility: str
+    mch_number: str
+    first_name: str
+    other_names: str
+    dob: str
+    marital_status: str
+    education_level: str
+    reading_ability: str
     religion: str
-    homeLanguage: str
-    householdSize: int
-    pregnancyCount: int
-    parity: int
-    livingChildrenCount: int
-    birthControlMethods: str
-    pregnancyFeelings: str
-    prePregnancyState: str
-    partnerFeelings: str
-    # username: Optional[str]
-    # password: Optional[str]
-    gender:  Optional[str]
+    home_language: str
 
     # @validator('gender')
     # def gender_must_be_male_or_femal(cls,gender):

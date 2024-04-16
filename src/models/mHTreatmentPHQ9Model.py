@@ -3,13 +3,16 @@ import uuid
 
 
 class MentalHealthPHQ9Model(BaseModel):
-    interestPleasure: str
-    feelingDepressed: str
-    troubleSleeping: str
-    feelingTired: str
-    poorAppetite: str
-    feelingBadAboutYourself: str
-    troubleConcentrating: str
-    slowOrRestless: str
-    thoughtsOfHarmingYourself: str
-    difficultyExperiencedProblems: str
+
+    id: object = Field(default_factory=uuid.uuid4, alias='_id')
+    user_id: object
+    interest_pleasure: str
+    feeling_depressed: str
+    trouble_sleeping: str
+    feeling_tired: str
+    poor_appetite: str
+    feeling_bad_about_yourself: str
+    trouble_concentrating: str
+    slow_or_restless: str
+    thoughts_of_harming_yourself: str
+    study_id: str

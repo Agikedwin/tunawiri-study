@@ -22,20 +22,19 @@ class ViralLoad(BaseModel):
 
 
 class ClinicalModel(BaseModel):
-    #id: str = Field(default_factory=uuid.uuid4, alias='_id')
-    vitals:VitalsModel | None = None
-    cd4Count:CD4CountModel | None = None
-    viralLoad: ViralLoad | None = None
-    artStartDate: str
-    currentArtRegimen: str
-    lastHIVVisitDate: str
-    missedVisitsNo: str
-    missedVisitsYes: str
-    missedVisitsCount: int
-
-
-
-
-
-
-
+    id: object = Field(default_factory=uuid.uuid4, alias='_id')
+    user_id : object
+    cd4_count_known: str
+    cd4_count_unknown: str
+    known_cd4_count: str
+    cd4_count_date: str
+    viral_load_known: str
+    viral_load_unknown: str
+    known_viral_load: str
+    viral_load_date: str
+    art_start_date: str
+    current_art_regimen: str
+    last_hiv_visit_date: str
+    missed_visits_no: str
+    missed_visits_yes: str
+    missed_visits_count: str

@@ -9,10 +9,10 @@ def get_collection_users(request: Request):
     return request.app.database['users']
 
 def create_user(request: Request, user: User = Body(...)):
-    dob = eventYear(user.age).getDobFromAge()
+    #dob = eventYear(user.dob).getDobFromAge()
    
-    user.gender = 'Female'
-    user.age = dob
+    #user.gender = 'Female'
+    #user.dob = dob
     
     print(user)
     print(request)
@@ -28,7 +28,7 @@ def list_users(request: Request, limit: int):
 
 
 def find_user(request: Request, id: str):
-    if (user := get_collection_users(request).find_one({"_id": ObjectId(id)})):
+    if (user := get_collection_users(request).find_one({"_id": id})):
         return user
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"User with id {id} not found!")
 
