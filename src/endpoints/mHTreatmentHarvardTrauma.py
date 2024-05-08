@@ -12,7 +12,7 @@ def create_mental_health_harvardTrauma(request: Request, mentalHealth: MentalHea
     return harvardTraumaRule.create_mental_health_harvardTrauma(request, mentalHealth)
 
 
-@router.get("/", response_description="Get Mental Health HarvardTrauma", response_model=MentalHealthHarvardTraumaModel)
+@router.get("/", response_description="Get Mental Health HarvardTrauma", response_model=List[MentalHealthHarvardTraumaModel])
 def list_mental_health_harvardTrauma(request: Request):
     return harvardTraumaRule.list_mental_health_harvardTrauma(request, 1000)
 

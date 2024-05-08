@@ -5,9 +5,8 @@ import uuid
 class MentalHealthPHQ9Model(BaseModel):
 
     id: object = Field(default_factory=uuid.uuid4, alias='_id')
-    user_id: object
     interest_pleasure: str
-    feeling_depressed: str
+    feeling_depressed:str
     trouble_sleeping: str
     feeling_tired: str
     poor_appetite: str
@@ -15,4 +14,5 @@ class MentalHealthPHQ9Model(BaseModel):
     trouble_concentrating: str
     slow_or_restless: str
     thoughts_of_harming_yourself: str
-    study_id: str
+    user_id: object
+    phq9_score: float

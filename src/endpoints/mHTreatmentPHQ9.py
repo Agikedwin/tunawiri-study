@@ -5,14 +5,13 @@ from src.models.mHTreatmentPHQ9Model import MentalHealthPHQ9Model
 
 router = APIRouter(prefix="/phq9", tags=["MentalHealthPhq9"])
 
-
 @router.post('/', response_description='Create New Mental Health Phq9', status_code=status.HTTP_201_CREATED,
              response_model=MentalHealthPHQ9Model)
 def create_mental_health_phq9(request: Request, mentalHealth: MentalHealthPHQ9Model = Body(...)):
     return phq9Rule.create_mental_health_phq9(request, mentalHealth)
 
 
-@router.get("/", response_description="Get Mental Health Phq9", response_model=MentalHealthPHQ9Model)
+@router.get("/", response_description="Get Mental Health Phq9", response_model=List[MentalHealthPHQ9Model])
 def list_mental_health_phq9(request: Request):
     return phq9Rule.list_mental_health_phq9(request, 1000)
 

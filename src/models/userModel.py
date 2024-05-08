@@ -14,6 +14,7 @@ class User(BaseModel):
     reading_ability: str
     religion: str
     home_language: str
+    study_id: str
 
     # @validator('gender')
     # def gender_must_be_male_or_femal(cls,gender):

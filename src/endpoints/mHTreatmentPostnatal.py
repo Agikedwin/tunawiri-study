@@ -12,7 +12,7 @@ def create_mental_health_postnatal(request: Request, mentalHealth: MentalHealthP
     return postnatalRule.create_mental_health_postnatal(request, mentalHealth)
 
 
-@router.get("/", response_description="Get Mental Health Postnatal", response_model=MentalHealthPostnatalModel)
+@router.get("/", response_description="Get Mental Health Postnatal", response_model=List[MentalHealthPostnatalModel])
 def list_mental_health_postnatal(request: Request):
     return postnatalRule.list_mental_health_postnatal(request, 1000)
 

@@ -12,7 +12,7 @@ def create_mental_health_suicidal(request: Request, mentalHealth: MentalHealthSu
     return suicidalRule.create_mental_health_suicidal(request, mentalHealth)
 
 
-@router.get("/", response_description="Get Mental Health Suicidal", response_model=MentalHealthSuicidalModel)
+@router.get("/", response_description="Get Mental Health Suicidal", response_model=List[MentalHealthSuicidalModel])
 def list_mental_health_suicidal(request: Request):
     return suicidalRule.list_mental_health_suicidal(request, 1000)
 

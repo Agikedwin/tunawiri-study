@@ -16,7 +16,7 @@ def create_clinical(request: Request, clinical: ClinicalModel = Body(...)):
 
 @router.get("/", response_description="List Clinicals", response_model=List[ClinicalModel])
 def list_clinicals(request: Request):
-    return clinicals.list_clinicals(request, 100)
+    return clinicals.list_clinicals(request, 1000)
 
 
 @router.get("/{id}", response_description="Get a single Clinical by id", response_model=ClinicalModel)

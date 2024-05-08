@@ -12,7 +12,7 @@ def create_mental_health_gad7Scale(request: Request, mentalHealth: MentalHealthG
     return gad7ScaleRule.create_mental_health_gad7Scale(request, mentalHealth)
 
 
-@router.get("/", response_description="Get Mental Health Gad7Scale", response_model=MentalHealthGad7ScaleModel)
+@router.get("/", response_description="Get Mental Health Gad7Scale", response_model=List[MentalHealthGad7ScaleModel])
 def list_mental_health_gad7Scale(request: Request):
     return gad7ScaleRule.list_mental_health_gad7Scale(request, 1000)
 

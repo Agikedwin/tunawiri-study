@@ -12,7 +12,7 @@ def create_mental_health_traumaScale(request: Request, mentalHealth: MentalHealt
     return traumaScaleRule.create_mental_health_traumaScale(request, mentalHealth)
 
 
-@router.get("/", response_description="Get Mental Health TraumaScale", response_model=MentalHealthTraumaExposureModel)
+@router.get("/", response_description="Get Mental Health TraumaScale", response_model=List[MentalHealthTraumaExposureModel])
 def list_mental_health_traumaScale(request: Request):
     return traumaScaleRule.list_mental_health_traumaScale(request, 1000)
 
