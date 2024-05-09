@@ -17,8 +17,8 @@ def list_mental_health_harvardTrauma(request: Request, limit: int):
     return list(getcollection_mental_health_harvardTrauma(request).find(limit=limit))
 
 
-def find_one_mental_health_harvardTrauma(request: Request, id: str):
-    if mental := getcollection_mental_health_harvardTrauma(request).find_one({"id": ObjectId(id)}):
+def find_one_mental_health_harvardTrauma(request: Request, user_id: object):
+    if mental := getcollection_mental_health_harvardTrauma(request).find_one({"user_id": user_id}):
         return mental
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Metal Health HarvardTrauma with Id {id} not found")
 

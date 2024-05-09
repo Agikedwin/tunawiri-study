@@ -14,7 +14,7 @@ def create_social_support(request: Request, socialsupport: SocialSupportModel = 
 
 @router.get("/", response_description="List Social Support Rules", response_model=List[SocialSupportModel])
 def list_social_support(request: Request):
-    return socialSupportRules.list_socialsupport(request, 100)
+    return socialSupportRules.list_socialsupport(request, 1000)
 
 @router.get("/{id}", response_description="Get a single Social Support Rules by id", response_model=SocialSupportModel)
 def find_social_support(request: Request, id: str):    

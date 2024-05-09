@@ -17,8 +17,8 @@ def list_mental_health_postnatal(request: Request, limit: int):
     return list(getcollection_mental_health_postnatal(request).find(limit=limit))
 
 
-def find_one_mental_health_postnatal(request: Request, id: str):
-    if mental := getcollection_mental_health_postnatal(request).find_one({"id": ObjectId(id)}):
+def find_one_mental_health_postnatal(request: Request, user_id: str):
+    if mental := getcollection_mental_health_postnatal(request).find_one({"user_id": user_id}):
         return mental
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Metal Health Postnatal with Id {id} not found")
 

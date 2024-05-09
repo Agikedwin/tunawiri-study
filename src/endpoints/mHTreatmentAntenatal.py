@@ -12,7 +12,7 @@ def create_mental_health_antenatal(request: Request, mentalHealth: MentalHealthA
     return antenatalRule.create_mental_health_antenatal(request, mentalHealth)
 
 
-@router.get("/", response_description="Get Mental Health Antenatal", response_model=MentalHealthAntenatalModel)
+@router.get("/", response_description="Get Mental Health Antenatal", response_model=List[MentalHealthAntenatalModel])
 def list_mental_health_antenatal(request: Request):
     return antenatalRule.list_mental_health_antenatal(request, 1000)
 
