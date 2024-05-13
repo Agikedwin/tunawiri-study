@@ -1,3 +1,6 @@
 tvenv/
 Guide
 guide-docker
+.dockerignore
+.github/workflows/
+DockerFileFolder/

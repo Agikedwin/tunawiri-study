@@ -4,7 +4,7 @@ from src.models.mHTreatmentGeneralModel import GeneralTreatmentModel
 from bson import ObjectId
 
 def getcollection_mental_heelth(request: Request):
-    return request.app.database['mentalhealth']
+    return request.app.database['maternalandinfanthealth']
 
 def create_mental_health(request:Request, mentalhealth: GeneralTreatmentModel=Body(...)):
     new_mental = getcollection_mental_heelth(request).insert_one(jsonable_encoder(mentalhealth))

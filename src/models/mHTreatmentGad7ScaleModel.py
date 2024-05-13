@@ -12,3 +12,5 @@ class MentalHealthGad7ScaleModel(BaseModel):
     easily_annoyed_irritable: str
     feeling_afraid_something_awful_might_happen: str
     user_id: object
+    gad7_score: float
+    severity: str

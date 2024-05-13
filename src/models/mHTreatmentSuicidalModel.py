@@ -14,3 +14,6 @@ class MentalHealthSuicidalModel(BaseModel):
     done_anything_to_end_your_life_3month: str
     done_anything_to_end_your_life_lifetime: str
     suicidality_screener_score: str
+    suicidal_score: float
+    severity: str
+

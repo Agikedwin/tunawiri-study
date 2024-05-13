@@ -16,3 +16,4 @@ class MentalHealthPHQ9Model(BaseModel):
     thoughts_of_harming_yourself: str
     user_id: object
     phq9_score: float
+    severity: str

@@ -3,7 +3,7 @@ from typing import List
 import src.rules.mHTreatmentGeneralRules as mentalRule
 from src.models.mHTreatmentGeneralModel import GeneralTreatmentModel
 
-router = APIRouter(prefix="/generalhealth", tags=["MentalHealth"])
+router = APIRouter(prefix="/maternalandinfanthealth", tags=["MaternalHealth"])
 
 
 @router.post('/', response_description='Create New Mental Health', status_code=status.HTTP_201_CREATED,
