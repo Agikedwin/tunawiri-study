@@ -28,7 +28,7 @@ def list_socialsupport(request: Request, limit: int):
 
 
 def find_socialsupport(request: Request, user_id: str):
-    if (socialsupport := get_collection_socialsupport(request).find_one({"user_id": user_id})):
+    if (socialsupport := get_collection_socialsupport(request).find({"user_id": user_id}).sort({'created_at': -1})):
         return socialsupport
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Social Support with id {id} not found!")
 

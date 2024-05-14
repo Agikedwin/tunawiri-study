@@ -18,7 +18,7 @@ def list_mental_health_suicidal(request: Request):
 
 
 @router.get("/{id}", response_description="Get a single Mental Health Suicidal by Id",
-            response_model=MentalHealthSuicidalModel)
+            response_model=List[MentalHealthSuicidalModel])
 def find_mental_health_suicidal(request: Request, id: str):
     return suicidalRule.find_one_mental_health_suicidal(request, id)
 

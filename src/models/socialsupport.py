@@ -1,5 +1,7 @@
+from datetime import datetime
 from pydantic import BaseModel,Field
 import uuid
+
 
 class SocialSupportModel(BaseModel):
         id: object = Field(default_factory=uuid.uuid4, alias='_id')
@@ -28,3 +30,4 @@ class SocialSupportModel(BaseModel):
         refused_money_for_household: str
         tried_convince_crazy: str
         blamed_for_violent_behavior: str
+        created_at:  datetime = datetime.now()

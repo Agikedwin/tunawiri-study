@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pydantic import BaseModel, Field
 import uuid
 
@@ -31,3 +33,5 @@ class MentalHealthHarvardTraumaModel(BaseModel):
     feeling_people_or_objects_around_you_are_strange_or_not_real: str
     havard_score: float
     severity: str
+    color: str
+    created_at: datetime = datetime.now()

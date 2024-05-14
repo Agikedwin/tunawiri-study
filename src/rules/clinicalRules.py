@@ -26,7 +26,7 @@ def list_clinicals(request: Request, limit: int):
 
 def find_clinical(request: Request, user_id: object):
     print("ID =========", id)
-    if clinical := get_collection_clinicals(request).find_one({"user_id": user_id}):
+    if clinical := get_collection_clinicals(request).find({"user_id": user_id}).sort({'created_at': -1}):
         return clinical
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Clinical with id {id} not found!")
 

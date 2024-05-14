@@ -1,6 +1,8 @@
 import uuid
 from typing import Optional
 from pydantic import BaseModel, Field, validator
+from datetime import datetime
+
 
 class VitalsModel(BaseModel):
     bloodPressure: str
@@ -37,3 +39,4 @@ class ClinicalModel(BaseModel):
     other_regimen_name: str
     viral_load_date: str
     viral_load_known:str
+    created_at: datetime = datetime.now()

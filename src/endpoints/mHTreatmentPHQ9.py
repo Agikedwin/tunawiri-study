@@ -16,7 +16,7 @@ def list_mental_health_phq9(request: Request):
     return phq9Rule.list_mental_health_phq9(request, 1000)
 
 
-@router.get("/{id}", response_description="Get a single Mental Health Phq9 by Id", response_model=MentalHealthPHQ9Model)
+@router.get("/{id}", response_description="Get a single Mental Health Phq9 by Id", response_model=List[MentalHealthPHQ9Model])
 def find_mental_health_phq9(request: Request, id: str):
     return phq9Rule.find_one_mental_health_phq9(request, id)
 

@@ -17,7 +17,7 @@ def list_mental_health_antenatal(request: Request):
     return antenatalRule.list_mental_health_antenatal(request, 1000)
 
 
-@router.get("/{id}", response_description="Get a single Mental Health Antenatal by Id", response_model=MentalHealthAntenatalModel)
+@router.get("/{id}", response_description="Get a single Mental Health Antenatal by Id", response_model=List[MentalHealthAntenatalModel])
 def find_mental_health_antenatal(request: Request, id: str):
     return antenatalRule.find_one_mental_health_antenatal(request, id)
 

@@ -19,7 +19,7 @@ def list_clinicals(request: Request):
     return clinicals.list_clinicals(request, 1000)
 
 
-@router.get("/{id}", response_description="Get a single Clinical by id", response_model=ClinicalModel)
+@router.get("/{id}", response_description="Get a single Clinical by id", response_model=List[ClinicalModel])
 def find_Clinical(request: Request, id: object):
     return clinicals.find_clinical(request, id)
 

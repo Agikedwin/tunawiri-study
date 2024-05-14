@@ -1,3 +1,4 @@
+from datetime import datetime
 
 from pydantic import BaseModel, Field
 import uuid
@@ -16,4 +17,6 @@ class MentalHealthSuicidalModel(BaseModel):
     suicidality_screener_score: str
     suicidal_score: float
     severity: str
+    color: str
+    created_at: datetime = datetime.now()
 

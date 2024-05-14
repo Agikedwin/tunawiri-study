@@ -17,7 +17,7 @@ def list_mental_health(request: Request):
     return mentalRule.list_mental_health(request, 1000)
 
 
-@router.get("/{id}", response_description="Get a single mental Health by Id", response_model=GeneralTreatmentModel)
+@router.get("/{id}", response_description="Get a single mental Health by Id", response_model=List[GeneralTreatmentModel])
 def find_mental_health(request: Request, id: str):
     print("Here ==================")
     return mentalRule.find_one_mental_health(request, id)

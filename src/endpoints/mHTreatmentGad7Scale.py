@@ -18,7 +18,7 @@ def list_mental_health_gad7Scale(request: Request):
 
 
 @router.get("/{id}", response_description="Get a single Mental Health Gad7Scale by Id",
-            response_model=MentalHealthGad7ScaleModel)
+            response_model=List[MentalHealthGad7ScaleModel])
 def find_mental_health_gad7Scale(request: Request, id: str):
     return gad7ScaleRule.find_one_mental_health_gad7Scale(request, id)
 

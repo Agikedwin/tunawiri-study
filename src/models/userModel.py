@@ -1,4 +1,5 @@
 import uuid
+from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel, Field, validator
 
@@ -15,6 +16,7 @@ class User(BaseModel):
     religion: str
     home_language: str
     study_id: str
+    created_at: datetime = datetime.now()
 
     # @validator('gender')
     # def gender_must_be_male_or_femal(cls,gender):

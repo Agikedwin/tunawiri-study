@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pydantic import BaseModel, Field
 import uuid
 
@@ -13,3 +15,4 @@ class TunawiriInterventionModel(BaseModel):
     still_involved: str
     program_helpfulness: str
     study_id: str
+    created_at: datetime = datetime.now()

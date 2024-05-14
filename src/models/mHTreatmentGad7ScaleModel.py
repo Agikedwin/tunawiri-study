@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pydantic import BaseModel, Field
 import uuid
 
@@ -14,3 +16,5 @@ class MentalHealthGad7ScaleModel(BaseModel):
     user_id: object
     gad7_score: float
     severity: str
+    color: str
+    created_at: datetime = datetime.now()

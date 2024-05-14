@@ -18,7 +18,7 @@ def list_mental_health_traumaScale(request: Request):
 
 
 @router.get("/{id}", response_description="Get a single Mental Health TraumaScale by Id",
-            response_model=MentalHealthTraumaExposureModel)
+            response_model=List[MentalHealthTraumaExposureModel])
 def find_mental_health_traumaScale(request: Request, id: str):
     return traumaScaleRule.find_one_mental_health_traumaScale(request, id)
 

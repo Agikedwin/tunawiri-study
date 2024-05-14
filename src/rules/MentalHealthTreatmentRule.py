@@ -23,7 +23,7 @@ def list_mentalHealths(request: Request, limit: int):
 
 
 def find_mentalHealth(request: Request, user_id: str):
-    if mentalHealth := get_collection_mentalHealths(request).find_one({"user_id": user_id}):
+    if mentalHealth := get_collection_mentalHealths(request).find({"user_id": user_id}).sort({'created_at': -1}):
         return mentalHealth
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"mentalHealth with id {id} not found!")
 

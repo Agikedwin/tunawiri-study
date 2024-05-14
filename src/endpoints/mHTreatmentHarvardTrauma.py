@@ -18,7 +18,7 @@ def list_mental_health_harvardTrauma(request: Request):
 
 
 @router.get("/{id}", response_description="Get a single Mental Health HarvardTrauma by Id",
-            response_model=MentalHealthHarvardTraumaModel)
+            response_model=List[MentalHealthHarvardTraumaModel])
 def find_mental_health_harvardTrauma(request: Request, id: str):
     return harvardTraumaRule.find_one_mental_health_harvardTrauma(request, id)
 

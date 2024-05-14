@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pydantic import BaseModel, Field
 import uuid
 
@@ -8,3 +10,4 @@ class ArtAdherenceModel(BaseModel):
     missed_doses: str
     medicines_taking_quality: str
     medicine_frequency: str
+    created_at: datetime = datetime.now()

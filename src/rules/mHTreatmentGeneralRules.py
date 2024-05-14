@@ -14,7 +14,7 @@ def list_mental_health(request: Request, limit: int):
     return list(getcollection_mental_heelth(request).find(limit=limit))
 
 def find_one_mental_health(request: Request, user_id: object):
-    if (mental:= getcollection_mental_heelth(request).find_one({"user_id": user_id})):
+    if (mental:= getcollection_mental_heelth(request).find({"user_id": user_id}).sort({'created_at': -1})):
         return mental
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Metal Health with Id {id} not found")
 def delete_menta_health(request: Request, id: str):

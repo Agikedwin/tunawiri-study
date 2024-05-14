@@ -17,7 +17,7 @@ def list_mental_health_postnatal(request: Request):
     return postnatalRule.list_mental_health_postnatal(request, 1000)
 
 
-@router.get("/{id}", response_description="Get a single Mental Health Postnatal by Id", response_model=MentalHealthPostnatalModel)
+@router.get("/{id}", response_description="Get a single Mental Health Postnatal by Id", response_model=List[MentalHealthPostnatalModel])
 def find_mental_health_postnatal(request: Request, id: str):
     return postnatalRule.find_one_mental_health_postnatal(request, id)
 

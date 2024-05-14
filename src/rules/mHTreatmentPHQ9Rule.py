@@ -19,7 +19,7 @@ def list_mental_health_phq9(request: Request, limit: int):
 
 def find_one_mental_health_phq9(request: Request, user_id: object):
     print("PHQ9 ---")
-    if mental := getcollection_mental_health_phq9(request).find_one({"user_id": user_id}):
+    if mental := getcollection_mental_health_phq9(request).find({"user_id": user_id}).sort({'created_at': -1}):
         return mental
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Metal Health Phq9 with Id {id} not found")
 

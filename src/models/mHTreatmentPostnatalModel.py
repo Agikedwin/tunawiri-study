@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pydantic import BaseModel, Field
 import uuid
 
@@ -10,3 +12,4 @@ class MentalHealthPostnatalModel(BaseModel):
     place_of_birth: str
     infant_alive: str
     infant_passing_age:str
+    created_at: datetime = datetime.now()
