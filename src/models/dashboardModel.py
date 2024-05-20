@@ -1,11 +1,11 @@
-import uuid
-from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel, Field, validator
 
+from src.models.clinicalModel import ClinicalModel
+from src.models.userModel import User
 
-class User(BaseModel):
-    id: object = Field(default_factory=uuid.uuid4, alias='_id')
+
+class Dashboard(BaseModel):
     mch_number: str
     first_name: str
     other_names: str
@@ -16,4 +16,5 @@ class User(BaseModel):
     religion: str
     home_language: str
     study_id: str
-    created_at: datetime = datetime.now()
+    clinical:Optional[ClinicalModel]
+

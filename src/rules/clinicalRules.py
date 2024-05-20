@@ -20,8 +20,8 @@ def create_clinical(request: Request, clinical: ClinicalModel = Body(...)):
 
 
 def list_clinicals(request: Request, limit: int):
-    users = list(get_collection_clinicals(request).find(limit=limit))
-    return users
+    clinical = list(get_collection_clinicals(request).find(limit=limit))
+    return clinical
 
 
 def find_clinical(request: Request, user_id: object):

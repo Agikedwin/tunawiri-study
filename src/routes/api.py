@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from src.endpoints import (users, clinical, socialSupport, mHTreatmentGeneral, mHTreatmentAntenatal,
                            mHTreatmentPostnatal, mHTreatmentPHQ9, mHTreatmentGad7Scale, mHTreatmentTraumaExposure,
-                           mHTreatmentHarvardTrauma, mHTreatmentSuicidal, ArtAdherence, MentalHealthTreatment, home)
+                           mHTreatmentHarvardTrauma, mHTreatmentSuicidal, ArtAdherence, MentalHealthTreatment, dashboard, home)
 
 router = APIRouter()
 
@@ -19,4 +19,5 @@ router.include_router(mHTreatmentHarvardTrauma.router)
 router.include_router(mHTreatmentSuicidal.router)
 router.include_router(ArtAdherence.router)
 router.include_router(MentalHealthTreatment.router)
+router.include_router(dashboard.router)
 
