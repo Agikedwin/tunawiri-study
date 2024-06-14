@@ -17,7 +17,7 @@ def list_mental_health_antenatal(request: Request):
     return artRule.list_arts(request, 1000)
 
 
-@router.get("/{id}", response_description="Get a single Art Adherence by Id", response_model=ArtAdherenceModel)
+@router.get("/{id}", response_description="Get a single Art Adherence by Id", response_model=List[ArtAdherenceModel])
 def find_mental_health_antenatal(request: Request, id: str):
     return artRule.find_art(request, id)
 

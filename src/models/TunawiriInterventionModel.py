@@ -14,5 +14,4 @@ class TunawiriInterventionModel(BaseModel):
     average_meeting_length: str
     still_involved: str
     program_helpfulness: str
-    study_id: str
     created_at: datetime = datetime.now()

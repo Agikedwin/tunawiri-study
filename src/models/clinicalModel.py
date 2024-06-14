@@ -25,7 +25,7 @@ class ViralLoad(BaseModel):
 
 class ClinicalModel(BaseModel):
     id: object = Field(default_factory=uuid.uuid4, alias='_id')
-    user_id : object
+    user_id: object
     art_start_date: str
     cd4_count_date: str
     cd4_known: str
@@ -38,5 +38,5 @@ class ClinicalModel(BaseModel):
     last_hiv_visit_date: str
     other_regimen_name: str
     viral_load_date: str
-    viral_load_known:str
+    viral_load_known: str
     created_at: datetime = datetime.now()

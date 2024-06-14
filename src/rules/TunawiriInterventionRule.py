@@ -5,31 +5,31 @@ from bson import ObjectId
 from src.utils.dateFns import DateClass as eventYear
 
 
-def get_collection_mentalHealths(request: Request):
-    return request.app.database['mentalHealthTreatment']
+def get_collection_interventions(request: Request):
+    return request.app.database['interventionTreatment']
 
 
-def create_mentalHealth(request: Request, mentalHealth: TunawiriInterventionModel = Body(...)):
+def create_intervention(request: Request, intervention: TunawiriInterventionModel = Body(...)):
 
-    new_mentalHealth = get_collection_mentalHealths(request).insert_one(jsonable_encoder(mentalHealth))
-    print(new_mentalHealth)
-    created_mentalHealth = get_collection_mentalHealths(request).find_one({"_id": new_mentalHealth.inserted_id})
-    return created_mentalHealth
-
-
-def list_mentalHealths(request: Request, limit: int):
-    mentalHealth = list(get_collection_mentalHealths(request).find(limit=limit))
-    return mentalHealth
+    new_intervention = get_collection_interventions(request).insert_one(jsonable_encoder(intervention))
+    print(new_intervention)
+    created_intervention = get_collection_interventions(request).find_one({"_id": new_intervention.inserted_id})
+    return created_intervention
 
 
-def find_mentalHealth(request: Request, id: str):
-    if mentalHealth := get_collection_mentalHealths(request).find_one({"_id": ObjectId(id)}):
-        return mentalHealth
-    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"mentalHealth with id {id} not found!")
+def list_interventions(request: Request, limit: int):
+    intervention = list(get_collection_interventions(request).find(limit=limit))
+    return intervention
 
 
-def delete_mentalHealth(request: Request, id: str):
-    deleted_mentalHealth = get_collection_mentalHealths(request).delete_one({"_id": ObjectId(id)})
-    if deleted_mentalHealth.deleted_count == 1:
-        return f"mentalHealth with id {id} deleted successfully"
-    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"mentalHealth with id {id} not found!")
+def find_intervention(request: Request, user_id: object):
+    if intervention := get_collection_interventions(request).find({"user_id": user_id}).sort({'created_at': -1}):
+        return intervention
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"intervention with id {user_id} not found!")
+
+
+def delete_intervention(request: Request, user_id: object):
+    deleted_intervention = get_collection_interventions(request).delete_one({"_id": ObjectId(user_id)})
+    if deleted_intervention.deleted_count == 1:
+        return f"intervention with id {id} deleted successfully"
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"intervention with id {user_id} not found!")

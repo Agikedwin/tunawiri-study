@@ -22,14 +22,14 @@ def list_arts(request: Request, limit: int):
     return art
 
 
-def find_art(request: Request, id: str):
-    if art := get_collection_arts(request).find_one({"_id": ObjectId(id)}):
+def find_art(request: Request, user_id: object):
+    if art := get_collection_arts(request).find({"user_id": user_id}).sort({'created_at': -1}):
         return art
-    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"art with id {id} not found!")
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"art with id {user_id} not found!")
 
 
-def delete_art(request: Request, id: str):
-    deleted_art = get_collection_arts(request).delete_one({"_id": ObjectId(id)})
+def delete_art(request: Request, user_id: object):
+    deleted_art = get_collection_arts(request).delete_one({"_id": ObjectId(user_id)})
     if deleted_art.deleted_count == 1:
-        return f"art with id {id} deleted successfully"
-    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"art with id {id} not found!")
+        return f"art with id {user_id} deleted successfully"
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"art with id {user_id} not found!")
