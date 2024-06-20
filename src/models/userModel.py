@@ -16,4 +16,18 @@ class User(BaseModel):
     religion: str
     home_language: str
     study_id: str
+    username: str | None = None
+    user_role: str | None = None
+    password: str | None = None
+
     created_at: datetime = datetime.now()
+
+
+class TokenModel(BaseModel):
+    access_token: str
+    token_type: str
+
+
+class LoginModel(BaseModel):
+    username: str | None = None
+    password: str | None = None

@@ -1,6 +1,6 @@
 https://www.youtube.com/watch?v=UEOtZvTCmDo
 
-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
+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
 
 dckr_pat_m0P7n7_Oc6FobyeU-4xjTJPKD6o
 
@@ -40,5 +40,6 @@ jobs:
             - name: Test App Code
               run: python ./main.py
 
-                    
+let result = await db.collection.find({ "content_id": { $in: array }, isLocked : false })
+
              

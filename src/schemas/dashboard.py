@@ -26,7 +26,7 @@ def serializeList(entity) -> list:
 
 def serializedCount(entity) -> list:
     data = []
-    values = {'moderate': 0, 'Mild': 0, 'Severe': 0}
+    values = {'Low': 0, 'Moderate': 0, 'Mild': 0, 'Severe': 0}
     signs = Counter(k['severity'] for k in entity if k.get('severity'))
     for severity, count in signs.most_common():
         values.update({severity: count})
