@@ -15,5 +15,7 @@ class MmTreatmentModelModel(BaseModel):
     taking_as_prescribed: str
     user_id: object
     created_at: datetime = datetime.now()
+    comment: str | None = None
+    timepoint:  str | None = None
 
 

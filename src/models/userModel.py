@@ -7,6 +7,9 @@ from pydantic import BaseModel, Field, validator
 class User(BaseModel):
     id: object = Field(default_factory=uuid.uuid4, alias='_id')
     mch_number: str
+    ccc_number: str | None = None
+    ptid_number: str | None = None
+    registration_level: str | None = None
     first_name: str
     other_names: str
     dob: str

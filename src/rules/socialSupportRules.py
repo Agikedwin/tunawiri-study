@@ -10,7 +10,6 @@ def get_collection_socialsupport(request: Request):
     return request.app.database['socialsupport']
 
 def create_social_support(request: Request, social: SocialSupportModel = Body(...)):
-    print('ROW=========================== eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
     #print(social)
     print('-------------------------')
     #print( jsonable_encoder(social))

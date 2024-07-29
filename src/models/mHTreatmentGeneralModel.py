@@ -9,3 +9,5 @@ class GeneralTreatmentModel(BaseModel):
     user_id: object
     pregnancy_count: int
     created_at: datetime = datetime.now()
+    comment: str | None = None
+    timepoint:  str | None = None

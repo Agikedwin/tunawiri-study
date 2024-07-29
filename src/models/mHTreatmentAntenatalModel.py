@@ -10,3 +10,5 @@ class MentalHealthAntenatalModel(BaseModel):
     gestational_age_weeks: str
     months_pregnancy_antenatal_care: str
     created_at: datetime = datetime.now()
+    comment: str | None = None
+    timepoint:  str | None = None

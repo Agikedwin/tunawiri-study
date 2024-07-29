@@ -13,3 +13,5 @@ class MentalHealthPostnatalModel(BaseModel):
     infant_alive: str
     infant_passing_age:str
     created_at: datetime = datetime.now()
+    comment: str | None = None
+    timepoint:  str | None = None

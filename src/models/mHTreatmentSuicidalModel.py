@@ -19,4 +19,6 @@ class MentalHealthSuicidalModel(BaseModel):
     severity: str
     color: str
     created_at: datetime = datetime.now()
+    comment: str | None = None
+    timepoint: str | None = None
 
