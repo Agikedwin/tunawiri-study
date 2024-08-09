@@ -11,17 +11,34 @@ def get_collection_users(request: Request):
 
 
 def create_user(request: Request, user: User = Body(...)):
-    user.username = user.mch_number
-    user.password = get_password_hash(user.mch_number)
-    user.user_role = 'user'
+    try:
+        user.username = user.mch_number
+        user.password = get_password_hash(user.mch_number)
+        user.user_role = 'user'
+        user_id = user.mch_number
+        ccc_number = user.ccc_number
 
-    print(user)
-    print(request)
+        print("User ***",user_id)
+        user = jsonable_encoder(user)
+        #mchExixts = get_collection_users(request).find_one({'mch_number': user_id, 'ccc_number': ccc_number })
 
-    user = jsonable_encoder(user)
-    new_user = get_collection_users(request).insert_one(user)
-    created_user = get_collection_users(request).find_one({"_id": new_user.inserted_id})
-    return created_user
+        mchExixts = get_collection_users(request).find_one({'$or': [{'mch_number': user_id},{'ccc_number': ccc_number}]})
+
+        print(mchExixts)
+        if mchExixts:
+            user['fieldExists'] = True
+            print("user already exists :::::: ", user)
+            return user
+
+        else:
+            new_user = get_collection_users(request).insert_one(user)
+            created_user = get_collection_users(request).find_one({"_id": new_user.inserted_id})
+            return created_user
+
+    except Exception:
+        print("some error s")
+
+
 
 
 def list_users(request: Request, limit: int):

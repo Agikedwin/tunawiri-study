@@ -21,7 +21,7 @@ def create_user(request: Request, user: User = Body(...)):
 
 @router.get("/", response_description="List users", response_model=List[User])
 def list_users(request: Request):
-    return users.list_users(request, 1000)
+    return users.list_users(request, 10000)
 
 
 @router.get("/{id}", response_description="Get a single user by id", response_model=User)

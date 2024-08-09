@@ -22,6 +22,7 @@ class User(BaseModel):
     username: str | None = None
     user_role: str | None = None
     password: str | None = None
+    fieldExists: bool | None = None
 
     created_at: datetime = datetime.now()
 
