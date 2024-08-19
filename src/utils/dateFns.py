@@ -7,6 +7,6 @@ class DateClass:
         self.now = datetime.datetime.now()
         self.current_year = datetime.datetime.now().year
 
-    def getDobFromAge(self) -> int:
+    def getDobFromAge(self) -> str:
         dob = self.current_year - self.counNum
         return dob

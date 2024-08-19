@@ -35,3 +35,20 @@ class TokenModel(BaseModel):
 class LoginModel(BaseModel):
     username: str | None = None
     password: str | None = None
+
+class StaffModel(BaseModel):
+    job_title: str
+    department: str
+    phone_number: str
+    first_name: str
+    other_names: str
+    date_of_reg: str
+    registration_level: str
+    facility_level: str
+    staff_number: str
+    permissions: object
+    username: str | None = None
+    user_role: str | None = None
+    password: str | None = None
+    field_exists: bool | None = None
+

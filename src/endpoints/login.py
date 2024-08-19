@@ -12,6 +12,7 @@ router = APIRouter(prefix="/login",
 @router.post("/")
 def create_user(request: Request, login: LoginModel = Body(...)):
     response = users.authenticate_user(request, login)
+    print(('login here '))
     if response:
         return users.authenticate_user(request, login)
     else:

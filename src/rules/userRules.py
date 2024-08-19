@@ -1,13 +1,22 @@
+from itertools import count
+
 from fastapi import Body, Request, HTTPException, status
 from fastapi.encoders import jsonable_encoder
 from src.models.userModel import User
 from bson import ObjectId
 from src.utils.dateFns import DateClass as eventYear
 from src.rules.loginRules import *
+from datetime import date
 
+
+from  src.utils import  dateFns
+now = datetime.now()
 
 def get_collection_users(request: Request):
     return request.app.database['users']
+
+def get_collection_staff(request: Request):
+    return request.app.database['staff']
 
 
 def create_user(request: Request, user: User = Body(...)):
@@ -43,6 +52,13 @@ def create_user(request: Request, user: User = Body(...)):
 
 def list_users(request: Request, limit: int):
     users = list(get_collection_users(request).find(limit=limit))
+
+    count = 0
+
+    for f in users:
+        dob =  now.year - datetime.strptime(f['dob'], "%Y-%m-%dT%H:%M:%S.%fZ").year
+        users[count]['dob'] = str(dob)
+        count += 1
     return users
 
 
@@ -58,7 +74,7 @@ def get_user_by_username(request: Request, username):
 
 def authenticate_user(request: Request, login):
     user = get_user_by_username(request, login.username)
-    print("++++++++++++++++", login)
+    print(user,"++++++++++++++++", login)
 
     if user is None:
         return {'data': 'Not found'}
@@ -80,7 +96,7 @@ def delete_user(request: Request, id: str):
     if deleted_user.deleted_count == 1:
         return f"User with id {id} deleted successfully"
 
-    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"User with id {id} not found!")
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"User with id ----- {id} not found!")
 
 
 #Severity starts here
@@ -109,3 +125,80 @@ def find_severity_users(request: Request, id_list):
     users = list(get_collection_users(request).find({'_id': {'$in': id_list}}))
     print(users)
     return users
+
+
+#Staff begins here
+def create_staff(request, staff):
+    try:
+
+        staff.username = staff.staff_number
+        staff.password = get_password_hash(staff.staff_number)
+        staff.user_role = 'Staff'
+        staff_number = staff.staff_number
+        phone_number = staff.phone_number
+
+        print("staff ***", staff_number)
+        staff = jsonable_encoder(staff)
+        # mchExixts = get_collection_users(request).find_one({'mch_number': user_id, 'ccc_number': ccc_number })
+
+
+
+        staffNoExixts = get_collection_staff(request).find_one(
+            {'$or': [{'staff_number': staff_number}, {'phone_number': phone_number}]})
+
+        if staffNoExixts:
+            staff['field_exists'] = True
+            print("staff already exists :::::: ", staff)
+            return staff
+
+        else:
+            new_staff = get_collection_staff(request).insert_one(staff)
+
+            created_staff = get_collection_staff(request).find_one({"_id": new_staff.inserted_id})
+            return created_staff
+
+    except Exception:
+        print("some error staff")
+
+
+def list_staff(request: Request, limit: int):
+    staff = list(get_collection_staff(request).find(limit=limit))
+    print(staff)
+
+    count = 0
+
+    for f in staff:
+        dob = datetime.strptime(f['date_of_reg'], "%Y-%m-%dT%H:%M:%S.%fZ").date()
+        staff[count]['date_of_reg'] = str(dob)
+        count += 1
+
+    return staff
+
+
+def find_staff(request: Request, id: str):
+    if staff := get_collection_staff(request).find_one({"_id": id}):
+        return staff
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"staff with  here id {id} not found!")
+
+
+def get_staff_by_username(request: Request, username):
+    return get_collection_staff(request).find_one({"username": username})
+
+
+def authenticate_user(request: Request, login):
+    staff = get_staff_by_username(request, login.username)
+    print(staff,"++++++++++++++++", login)
+
+    if staff is None:
+        return {'data': 'Not found'}
+    if staff is not None:
+        print(staff['password'])
+        print(login.password)
+        #Validate password here
+        is_password_valid = verify_password(login.password, staff['password'])
+        if is_password_valid:
+            token = create_access_token({'username': staff['username']})
+            return {'token': token, 'message': 'success'}
+        else:
+            return {'token': None, 'message': 'failed'}
+
