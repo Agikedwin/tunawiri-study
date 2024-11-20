@@ -39,4 +39,10 @@ class ClinicalModel(BaseModel):
     other_regimen_name: str
     viral_load_date: str
     viral_load_known: str
+    scheduled_visit_date: Optional[str] = None
+    actual_visit_date: Optional[str] = None
+    missed_visits_count: Optional[str] = None
     created_at: datetime = datetime.now()
+
+    class Config:
+        orm_mode = True
