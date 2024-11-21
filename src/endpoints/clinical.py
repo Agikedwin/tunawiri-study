@@ -21,6 +21,7 @@ def list_clinicals(request: Request):
 
 @router.get("/{id}", response_description="Get a single Clinical by id", response_model=List[ClinicalModel])
 def find_Clinical(request: Request, id: object):
+    print("========================")
     return clinicals.find_clinical(request, id)
 
 

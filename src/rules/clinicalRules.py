@@ -36,3 +36,17 @@ def delete_clinical(request: Request, id: str):
     if deleted_clinical.deleted_count == 1:
         return f"Clinical with id {id} deleted successfully"
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Clinical with id {id} not found!")
+
+def find_clinical_vl(request: Request, user_id: object):
+    print("ID =========", id)
+    if vl_res := get_collection_clinicals(request).find({"user_id": user_id}).sort({'created_at': -1}):
+        vl = []
+        vl_date = []
+        for data in vl_res:
+            vl.append(data['known_viral_load'])
+            vl_date.append(data['viral_load_date'])
+        return {
+            'vl': vl,
+            'vl_date': vl_date
+        }
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Clinical with id {id} not found!")
