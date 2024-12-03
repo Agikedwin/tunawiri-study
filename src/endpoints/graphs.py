@@ -31,6 +31,6 @@ def find_Clinical(request: Request, id: object):
     print("========================")
     gad7.find_one_mental_health_gad7Scale(request, id)
 
-@router.get('phq9Gad7', response_description="Get all graph data", response_model=object)
+@router.get('phq9Gad7/{user_id}', response_description="Get all graph data", response_model=object)
 def find_phq9_gad7(request: Request, user_id: object):
      return   phq9.find_phq9_gad7_graph(request, user_id)
