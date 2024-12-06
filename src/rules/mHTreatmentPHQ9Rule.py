@@ -3,6 +3,8 @@ from fastapi.encoders import jsonable_encoder
 from src.models.mHTreatmentPHQ9Model import MentalHealthPHQ9Model
 from bson import ObjectId
 
+from datetime import datetime
+
 
 def getcollection_mental_health_phq9(request: Request):
     return request.app.database['mentalhealthPhq9']
@@ -31,6 +33,7 @@ def delete_menta_health_phq9(request: Request, id: str):
 
 
 def find_phq9_gad7_graph(request: Request, user_id: object):
+    format_string = "%Y-%m-%d"
     pipeline = [
         {
             '$lookup': {
@@ -61,7 +64,11 @@ def find_phq9_gad7_graph(request: Request, user_id: object):
             count+=1
             phq9.append(data['phq9_score'])
             gad7.append(data['gad7']['gad7_score'])
-            visit_count.append(f"Visit {count}")
+            if  data['created_at']:
+                #visit_count.append(f"Visit {count}" )
+                visit_count.append(data['created_at'][0:10])
+            else:
+                visit_count.append(data['gad7']['created_at'][0:10])
 
         print(gad7,phq9,visit_count)
 
