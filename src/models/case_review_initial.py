@@ -1,33 +1,35 @@
 from datetime import datetime
+from typing import Optional
+
 from pydantic import BaseModel,Field
 import uuid
 
 class CaseReviewInitialModel(BaseModel):
     id: object = Field(default_factory=uuid.uuid4, alias='_id')
     user_id: object
-    timepoint: str
-    anxietycategorization: str
-    depressioncategorization: str
-    anxiety_score: str
-    Phq9_score: str
-    takingMedications: str
-    dosage: str
-    changeInDosage: str
-    duration: str
-    adherence: str
-    side_effect: str
-    alternative_treatment: str
-    current_therapy: str
-    other_current_therapy: str
-    receiving_pm: str
-    no_pm_sessions: str
-    recent_psychlops: str
-    frequency_of_therapy: str
-    other_therapy_frequency: str
-    engagement_therapy: str
-    treatment_goals: str
-    coping_strategies: str
-    phq9ActualScore: str
-    anxietyActualScore: str
-    patient_satisfaction: str
-    comment: str
+    timepoint: Optional[str]| None = None
+    anxietycategorization: Optional[str]| None = None
+    depressioncategorization: Optional[str]| None = None
+    anxiety_score: Optional[str]| None = None
+    Phq9_score: Optional[str]| None = None
+    takingMedications: Optional[str] | None = None
+    dosage: Optional[str]| None = None
+    changeInDosage: Optional[str] | None = None
+    duration: Optional[str] | None = None
+    adherence: Optional[str] | None = None
+    side_effect: Optional[str]| None = None
+    alternative_treatment: Optional[str]| None = None
+    current_therapy: Optional[str]| None = None
+    other_current_therapy: Optional[str]| None = None
+    receiving_pm: Optional[str]| None = None
+    no_pm_sessions: Optional[str]| None = None
+    recent_psychlops: Optional[str]| None = None
+    frequency_of_therapy: Optional[str]| None = None
+    other_therapy_frequency: Optional[str]| None = None
+    engagement_therapy: Optional[str]| None = None
+    treatment_goals: Optional[str]| None = None
+    coping_strategies: Optional[str]| None = None
+    phq9ActualScore: Optional[str]| None = None
+    anxietyActualScore: Optional[str]| None = None
+    patient_satisfaction: Optional[str]| None = None
+    comment: Optional[str]| None = None

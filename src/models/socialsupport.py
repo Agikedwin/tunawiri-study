@@ -1,4 +1,6 @@
 from datetime import datetime
+from typing import Optional
+
 from pydantic import BaseModel,Field
 import uuid
 
@@ -16,10 +18,10 @@ class SocialSupportModel(BaseModel):
         #slapped_thrown: str
         #pushed_dhoved: str
         hit_with_fist: str
-        kicked_dragged: str
+        kicked_dragged: Optional[str]| None = None
         #choked_burnt: str
         #threatened_used_weapon: str
-        #forced_sexual_Intercourse: str
+        forced_sexual_Intercourse: Optional[str] | None = None
         #agreed_unwanted_Intercourse: str
         #forced_other_sexual_act: str
         #tried_keep_from_friends: str
@@ -33,4 +35,3 @@ class SocialSupportModel(BaseModel):
         #blamed_for_violent_behavior: str
         created_at:  datetime = datetime.now()
         comment: str | None = None
-        timepoint: str | None = None
