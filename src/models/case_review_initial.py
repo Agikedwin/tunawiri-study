@@ -7,7 +7,6 @@ import uuid
 class CaseReviewInitialModel(BaseModel):
     id: object = Field(default_factory=uuid.uuid4, alias='_id')
     user_id: object
-    timepoint: Optional[str]| None = None
     anxietycategorization: Optional[str]| None = None
     depressioncategorization: Optional[str]| None = None
     anxiety_score: Optional[str]| None = None
@@ -32,4 +31,14 @@ class CaseReviewInitialModel(BaseModel):
     phq9ActualScore: Optional[str]| None = None
     anxietyActualScore: Optional[str]| None = None
     patient_satisfaction: Optional[str]| None = None
-    comment: Optional[str]| None = None
+
+    #followup values
+    timepoint: Optional[str] | None = None
+    planned_interventions: Optional[str] | None = None
+    refferal_to_specialist: Optional[str] | None = None
+    crisis_plan: Optional[str] | None = None
+    additional_support: Optional[str] | None = None
+    review_observation: Optional[str] | None = None
+    collaborative_decisions: Optional[str] | None = None
+    further_monitoring: Optional[str] | None = None
+    comment: Optional[str] | None = None

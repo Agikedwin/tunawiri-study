@@ -1,6 +1,6 @@
 from fastapi import Body, Request, HTTPException, status
 from fastapi.encoders import jsonable_encoder
-from src.models.mHTreatmentModel import MmTreatmentModelModel
+from src.models.mHTreatmentFormModel import MmTreatmentFormModel
 from bson import ObjectId
 from src.utils.dateFns import DateClass as eventYear
 
@@ -9,7 +9,7 @@ def get_collection_treatments(request: Request):
     return request.app.database['treatmentTreatment']
 
 
-def create_treatment(request: Request, treatment: MmTreatmentModelModel = Body(...)):
+def create_treatment(request: Request, treatment: MmTreatmentFormModel = Body(...)):
 
     new_treatment = get_collection_treatments(request).insert_one(jsonable_encoder(treatment))
     print(new_treatment)

@@ -1,14 +1,14 @@
 from fastapi import BackgroundTasks, Request, Body, HTTPException, status
 from fastapi.encoders import jsonable_encoder
-from src.models.mHTreatmentHarvardTraumaModel import MentalHealthHarvardTraumaModel
+from src.models.mHTreatmentPTSDSymptomsModel import MentalHealthPTSDSymptomsModel
 from bson import ObjectId
 
 
 def getcollection_mental_health_harvardTrauma(request: Request):
-    return request.app.database['mentalhealthHarvardTrauma']
+    return request.app.database['ptsdsymptoms']
 
 
-def create_mental_health_harvardTrauma(request: Request, mentalhealthHarvardTrauma: MentalHealthHarvardTraumaModel = Body(...)):
+def create_mental_health_harvardTrauma(request: Request, mentalhealthHarvardTrauma: MentalHealthPTSDSymptomsModel = Body(...)):
     new_mental = getcollection_mental_health_harvardTrauma(request).insert_one(jsonable_encoder(mentalhealthHarvardTrauma))
     return getcollection_mental_health_harvardTrauma(request).find_one({"_id": new_mental.inserted_id})
 

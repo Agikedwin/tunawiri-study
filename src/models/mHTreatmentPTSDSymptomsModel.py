@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field
 import uuid
 
 
-class MentalHealthHarvardTraumaModel(BaseModel):
+class MentalHealthPTSDSymptomsModel(BaseModel):
     id: object = Field(default_factory=uuid.uuid4, alias='_id')
     user_id: object
     thoughts_memories: str
@@ -31,9 +31,19 @@ class MentalHealthHarvardTraumaModel(BaseModel):
     feeling_damaged_by_traumatic_vent: str
     feeling_something_reminds_you_of_trauma_like_a_dream: str
     feeling_people_or_objects_around_you_are_strange_or_not_real: str
-    havard_score: float
+    havard_score: float | None = None
     severity: str
     color: str
     created_at: datetime = datetime.now()
     comment: str | None = None
     timepoint:  str | None = None
+
+    #new fields
+    had_nightmares_or_intrusive_thoughts: str | None = None
+    traumatic_events: str | None = None
+    tried_to_avoid_thoughts_or_situations:str | None = None
+    constantly_on_guard_or_easily_startled: str | None = None
+    felt_numb_or_detached: str | None = None
+    felt_guilty_or_blamed_yourself_or_others: str | None = None
+    ptsd5_score: float | None = None
+

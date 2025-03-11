@@ -4,18 +4,16 @@ from pydantic import BaseModel, Field
 import uuid
 
 
-class MmTreatmentModelModel(BaseModel):
+class MentalHealthDeliveryFormModel(BaseModel):
     id: object = Field(default_factory=uuid.uuid4, alias='_id')
-    mental_health_disorder: str
-    community_care: str
-    visit_hospital_clinic: str
-    treatment: str
-    other_treatments: str
-    medicine: str
-    taking_as_prescribed: str
     user_id: object
+    #gestational_age_weeks: str
+    #months_pregnancy_antenatal_care: str
     created_at: datetime = datetime.now()
     comment: str | None = None
     timepoint:  str | None = None
 
-
+    #new values
+    pregnancy_end_duration: str | None = None
+    pregnancy_end_method: str | None = None
+    place_of_birth: str | None = None
