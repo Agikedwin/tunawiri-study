@@ -1,15 +1,15 @@
 from fastapi import Body, Request, HTTPException, status
 from fastapi.encoders import jsonable_encoder
-from src.models.mHTreatmentGeneralModel import GeneralTreatmentModel
+from src.models.mHTreatmentAntenatalModel import GeneralTreatmentAntenatalModel
 from bson import ObjectId
 from src.utils.dateFns import DateClass as eventYear
 
 
 def get_collection_mentalHealths(request: Request):
-    return request.app.database['mentalHealth']
+    return request.app.database['antenatal']
 
 
-def create_mentalHealth(request: Request, mentalHealth: GeneralTreatmentModel = Body(...)):
+def create_mentalHealth(request: Request, mentalHealth: GeneralTreatmentAntenatalModel = Body(...)):
 
     new_mentalHealth = get_collection_mentalHealths(request).insert_one(jsonable_encoder(mentalHealth))
     print(new_mentalHealth)

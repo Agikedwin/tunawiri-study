@@ -1,12 +1,12 @@
 from  fastapi import BackgroundTasks, Request, Body, HTTPException, status
 from fastapi.encoders import jsonable_encoder
-from src.models.mHTreatmentGeneralModel import GeneralTreatmentModel
+from src.models.mHTreatmentAntenatalModel import GeneralTreatmentAntenatalModel
 from bson import ObjectId
 
 def getcollection_mental_heelth(request: Request):
     return request.app.database['maternalandinfanthealth']
 
-def create_mental_health(request:Request, mentalhealth: GeneralTreatmentModel=Body(...)):
+def create_mental_health(request:Request, mentalhealth: GeneralTreatmentAntenatalModel=Body(...)):
     new_mental = getcollection_mental_heelth(request).insert_one(jsonable_encoder(mentalhealth))
     return getcollection_mental_heelth(request).find_one({"_id": new_mental.inserted_id})
 
