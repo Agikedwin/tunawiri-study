@@ -6,7 +6,7 @@ from src.utils.dateFns import DateClass as eventYear
 
 
 def get_collection_treatments(request: Request):
-    return request.app.database['treatmentTreatment']
+    return request.app.database['mentalHealthTreatment']
 
 
 def create_treatment(request: Request, treatment: MmTreatmentFormModel = Body(...)):
@@ -18,7 +18,9 @@ def create_treatment(request: Request, treatment: MmTreatmentFormModel = Body(..
 
 
 def list_treatments(request: Request, limit: int):
-    treatment = list(get_collection_treatments(request).find(limit=limit))
+    treatment = (get_collection_treatments(request).find(limit=limit))
+    print("Mental Health *********************************88")
+    print(treatment)
     return treatment
 
 

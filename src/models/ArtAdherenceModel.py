@@ -10,4 +10,5 @@ class ArtAdherenceModel(BaseModel):
     missed_doses: str
     medicines_taking_quality: str
     medicine_frequency: str
+    art_score: str | None = None
     created_at: datetime = datetime.now()

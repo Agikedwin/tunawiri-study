@@ -29,7 +29,7 @@ class MmTreatmentFormModel(BaseModel):
     medicine:  str | None = None
     taking_as_prescribed:  str | None = None
 
-    user_id: object
+    user_id: object  | None = None
     created_at: datetime = datetime.now()
     comment: str | None = None
     timepoint:  str | None = None
