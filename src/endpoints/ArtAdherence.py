@@ -12,7 +12,7 @@ def create_mental_health_antenatal(request: Request, artAdherence: ArtAdherenceM
     return artRule.create_art(request, artAdherence)
 
 
-@router.get("/", response_description="Get Art Adherence", response_model=ArtAdherenceModel)
+@router.get("/", response_description="Get Art Adherence", response_model=List[ArtAdherenceModel])
 def list_mental_health_antenatal(request: Request):
     return artRule.list_arts(request, 1000)
 

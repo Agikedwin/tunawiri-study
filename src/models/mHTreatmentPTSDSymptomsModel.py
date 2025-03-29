@@ -31,6 +31,7 @@ class MentalHealthPTSDSymptomsModel(BaseModel):
     feeling_damaged_by_traumatic_vent: str
     feeling_something_reminds_you_of_trauma_like_a_dream: str
     feeling_people_or_objects_around_you_are_strange_or_not_real: str
+    # havard_score holds ptsd5_score front end label data
     havard_score: float | None = None
     severity: str
     color: str
