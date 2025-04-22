@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel, Field, validator
 
@@ -17,4 +18,5 @@ class Dashboard(BaseModel):
     home_language: str
     study_id: str
     clinical:Optional[ClinicalModel]
+    created_at: datetime = datetime.now()
 

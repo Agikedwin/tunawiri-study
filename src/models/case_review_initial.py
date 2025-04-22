@@ -42,3 +42,4 @@ class CaseReviewInitialModel(BaseModel):
     collaborative_decisions: Optional[str] | None = None
     further_monitoring: Optional[str] | None = None
     comment: Optional[str] | None = None
+    created_at: datetime = datetime.now()
