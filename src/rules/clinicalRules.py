@@ -15,8 +15,8 @@ def create_clinical(request: Request, clinical: ClinicalModel = Body(...)):
     #dct.pop('viralLoad')
     new_clinical = get_collection_clinicals(request).insert_one(jsonable_encoder(clinical))
     print(new_clinical)
-    created_clinical = get_collection_clinicals(request).find_one({"_id": new_clinical.inserted_id})
-    return created_clinical
+    #created_clinical = get_collection_clinicals(request).find_one({"_id": new_clinical.inserted_id})
+    return new_clinical
 
 
 def list_clinicals(request: Request, limit: int):
