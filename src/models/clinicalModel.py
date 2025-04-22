@@ -41,7 +41,7 @@ class ClinicalModel(BaseModel):
     viral_load_known: str
     scheduled_visit_date: str | None = None
     actual_visit_date: str | None = None
-    missed_visits_count:str | None = None
+    missed_visits_count:int | None = 0
     created_at: datetime = datetime.now()
 
     class Config:

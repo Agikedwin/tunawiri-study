@@ -26,7 +26,7 @@ def list_clinicals(request: Request, limit: int):
 
 def find_clinical(request: Request, user_id: object):
     print("ID =========", id)
-    if clinical := get_collection_clinicals(request).find({"user_id": user_id}).sort({'created_at': -1}):
+    if clinical := get_collection_clinicals(request).find({"user_id": user_id}):#.sort({'created_at': -1}):
         return clinical
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Clinical with id {id} not found!")
 
@@ -39,7 +39,7 @@ def delete_clinical(request: Request, id: str):
 
 def find_clinical_vl(request: Request, user_id: object):
     print("ID =========", id)
-    if vl_res := get_collection_clinicals(request).find({"user_id": user_id}).sort({'created_at': -1}):
+    if vl_res := get_collection_clinicals(request).find({"user_id": user_id}):#.sort({'created_at': -1}):
         vl = []
         vl_date = []
         for data in vl_res:
